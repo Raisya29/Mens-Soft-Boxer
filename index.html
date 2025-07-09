@@ -580,4 +580,117 @@
         </div>
     </section>
 
-    
+    <!-- FAQ Section -->
+    <section class="py-20 bg-sage bg-opacity-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-forest mb-4">Pertanyaan Umum</h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold flex justify-between items-center">
+                        <span>Apakah produk ini original?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-600">Ya, produk ini 100% original dari Luxury Goods dengan kualitas premium dan bahan terbaik.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold flex justify-between items-center">
+                        <span>Bagaimana cara memilih ukuran yang tepat?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-600">Anda dapat memilih ukuran berdasarkan berat badan Anda. Kami menyediakan panduan ukuran yang jelas di halaman produk.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold flex justify-between items-center">
+                        <span>Berapa lama waktu pengiriman?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-600">Pengiriman biasanya memakan waktu 1-3 hari kerja untuk wilayah Jawa dan 3-7 hari kerja untuk luar Jawa, tergantung lokasi.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+                    <button class="w-full text-left p=6 font-bold flex justify-between items-center">
+                        <span>Bagaimana jika produk tidak sesuai?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="px-6 pb-6 hidden">
+                        <p class="text-gray-600">Kami memberikan garansi 30 hari uang kembali jika produk tidak sesuai dengan ekspektasi Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        // Simple countdown timer
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ accordion
+            const faqButtons = document.querySelectorAll('button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    content.classList.toggle('hidden');
+                });
+            });
+            
+            // Sticky CTA scroll to form
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Countdown timer
+            function updateCountdown() {
+                const hoursElement = document.querySelector('.countdown-number:nth-child(1)');
+                const minutesElement = document.querySelector('.countdown-number:nth-child(3)');
+                const secondsElement = document.querySelector('.countdown-number:nth-child(5)');
+                
+                let hours = parseInt(hoursElement.textContent);
+                let minutes = parseInt(minutesElement.textContent);
+                let seconds = parseInt(secondsElement.textContent);
+                
+                seconds--;
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        
+                        if (hours < 0) {
+                            hours = 0;
+                            minutes = 0;
+                            seconds = 0;
+                        }
+                    }
+                }
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
